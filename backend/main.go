@@ -9,6 +9,7 @@ func main() {
 
 	r.GET("todos", listTodos)
 	r.GET("todos/:id", getTodo)
+	r.POST("todos", createTodo)
 
 	r.Run(":8080")
 }
@@ -25,5 +26,12 @@ func getTodo(c *gin.Context) {
 	// Placeholder for getting a specific todo by id
 	c.JSON(200, gin.H{
 		"message": "Get todo with ID " + id,
+	})
+}
+
+func createTodo(c *gin.Context) {
+	// Placeholder for creating a new todo
+	c.JSON(201, gin.H{
+		"message": "Create a new todo",
 	})
 }
