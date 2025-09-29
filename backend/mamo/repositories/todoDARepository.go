@@ -2,13 +2,13 @@ package repositories
 
 import "backend/mamo/entities"
 
-type TodoDARepository struct{}
+type TodoCelestiaRepository struct{}
 
-func NewTodoDARepository() TodoRepository {
-	return &TodoDARepository{}
+func NewTodoCelestiaRepository() TodoRepository {
+	return &TodoCelestiaRepository{}
 }
 
-func (r *TodoDARepository) List() ([]*entities.Todo, error) {
+func (r *TodoCelestiaRepository) List() ([]*entities.Todo, error) {
 	todos := []*entities.Todo{
 		{Title: "Learn Go"},
 		{Title: "Build a web app"},
