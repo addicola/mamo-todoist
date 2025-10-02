@@ -1,0 +1,6 @@
+server:
+  port: "8080"
+
+blobstream:
+  rpc: "localhost:26658"
+  namespace: "testing"
