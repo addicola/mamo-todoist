@@ -1,20 +1,30 @@
 package server
 
-import "github.com/gin-gonic/gin"
+import (
+	"backend/config"
+
+	"github.com/gin-gonic/gin"
+)
 
 type GinServer struct {
-	app *gin.Engine
+	conf *config.Config
+	app  *gin.Engine
 }
 
-func NewGinServer() Server {
+func NewGinServer(conf *config.Config) Server {
 	app := gin.Default()
 	return GinServer{
-		app: app,
+		conf: conf,
+		app:  app,
 	}
 }
 
 func (s GinServer) App() *gin.Engine {
 	return s.app
+}
+
+func (s GinServer) Port() string {
+	return s.conf.Server.Port
 }
 
 func (s GinServer) Start() {
@@ -24,5 +34,5 @@ func (s GinServer) Start() {
 		})
 	})
 
-	s.App().Run(":8080")
+	s.App().Run(s.Port())
 }
