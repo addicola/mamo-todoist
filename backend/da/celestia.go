@@ -56,8 +56,7 @@ func (c HTTPClient) NetworkHead() (*models.NetworkHeader, error) {
 	return &respModel.Result.Header, nil
 }
 
-func (c HTTPClient) List() error {
-	namespace := "testing"
+func (c HTTPClient) List(namespace string) error {
 	namespaceEncoded := base64.StdEncoding.EncodeToString([]byte(namespace))
 
 	fmt.Println("Namespace (base64):", namespaceEncoded)

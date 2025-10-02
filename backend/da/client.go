@@ -1,5 +1,5 @@
 package da
 
 type Client interface {
-	List() error
+	List(namespace string) error
 }
